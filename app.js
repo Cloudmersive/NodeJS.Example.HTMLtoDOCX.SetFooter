@@ -51,20 +51,34 @@ var callback = function(error, data, response) {
     reqConfig.InputFileBytes = fileOutput.toJSON().data;
 
 
-    var callback2 = function(error, data, response) {
+    var callback2 = function(error, data2, response) {
     if (error) {
         console.error(error);
     } else {
         console.log('API called successfully. Returned data');
 
-        fs.writeFile("C:\\temp\\cloudmersive_output.docx", data, "binary", function(err) {
+        var reqConfig = new CloudmersiveConvertApiClient.FinishEditingRequest(); // FinishEditingRequest | 
+        reqConfig.InputFileUrl = data2.EditedDocumentURL;
 
-            if(err) {
-                return console.log(err);
-            }
+        var callback = function(error, data3, response) {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log('API called successfully. Returned data');
+
+            fs.writeFile("C:\\temp\\cloudmersive_output.docx", data3, "binary", function(err) {
+
+                if(err) {
+                    return console.log(err);
+                }
+            
+                console.log("The file was saved!");
+            }); 
+        }
+        };
+        apiInstance.editDocumentFinishEditing(reqConfig, callback);
+
         
-            console.log("The file was saved!");
-        }); 
     }
     };
     apiInstance.editDocumentDocxSetFooter(reqConfig, callback2);
