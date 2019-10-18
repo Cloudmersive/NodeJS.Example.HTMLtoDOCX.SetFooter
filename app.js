@@ -24,3 +24,16 @@ apiInstance.convertWebHtmlToDocx(inputRequest, callback);
 
 
 
+var apiInstance = new CloudmersiveConvertApiClient.EditDocumentApi();
+
+var reqConfig = new CloudmersiveConvertApiClient.DocxSetFooterRequest(); // DocxSetFooterRequest | 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.editDocumentDocxSetFooter(reqConfig, callback);
