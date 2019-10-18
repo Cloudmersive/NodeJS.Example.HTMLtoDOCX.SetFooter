@@ -13,12 +13,14 @@ var inputRequest = new CloudmersiveConvertApiClient.HtmlToOfficeRequest(); // Ht
 
 inputRequest.Html = "<b>Hello, World!</b>";
 
+var fileOutput = null;
+
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    fileOutput = data;
   }
 };
 apiInstance.convertWebHtmlToDocx(inputRequest, callback);
