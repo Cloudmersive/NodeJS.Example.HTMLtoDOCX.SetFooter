@@ -1,5 +1,9 @@
 var CloudmersiveConvertApiClient = require('cloudmersive-convert-api-client');
+const fs = require('fs');
+
 var defaultClient = CloudmersiveConvertApiClient.ApiClient.instance;
+
+
 
 // Configure API key authorization: Apikey
 var Apikey = defaultClient.authentications['Apikey'];
@@ -51,7 +55,16 @@ var callback = function(error, data, response) {
     if (error) {
         console.error(error);
     } else {
-        console.log('API called successfully. Returned data: ' + data);
+        console.log('API called successfully. Returned data');
+
+        fs.writeFile("C:\\temp\\cloudmersive_output.docx", data, "binary", function(err) {
+
+            if(err) {
+                return console.log(err);
+            }
+        
+            console.log("The file was saved!");
+        }); 
     }
     };
     apiInstance.editDocumentDocxSetFooter(reqConfig, callback2);
