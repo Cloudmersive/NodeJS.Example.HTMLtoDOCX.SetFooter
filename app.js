@@ -37,6 +37,8 @@ var callback = function(error, data, response) {
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns = [];
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0] = new CloudmersiveConvertApiClient.DocxRun();
 
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].FontFamily = "Arial";
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].FontSize = 10;
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems = [];
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems[0] = new CloudmersiveConvertApiClient.DocxText();
 
