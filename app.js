@@ -3,13 +3,15 @@ var defaultClient = CloudmersiveConvertApiClient.ApiClient.instance;
 
 // Configure API key authorization: Apikey
 var Apikey = defaultClient.authentications['Apikey'];
-Apikey.apiKey = 'YOUR API KEY';
+Apikey.apiKey = 'f199b121-4d0d-495c-a6c2-44b83f12dce2';
 
 
 
 var apiInstance = new CloudmersiveConvertApiClient.ConvertWebApi();
 
 var inputRequest = new CloudmersiveConvertApiClient.HtmlToOfficeRequest(); // HtmlToOfficeRequest | 
+
+inputRequest.Html = "<b>Hello, World!</b>";
 
 
 var callback = function(error, data, response) {
