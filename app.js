@@ -35,7 +35,7 @@ var callback = function(error, data, response) {
     reqConfig.FooterToApply.Paragraphs[0] = new CloudmersiveConvertApiClient.DocxParagraph();
 
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns = [];
-    reqConfig.FooterToApply.Paragraphs[0].ContentRuns = new CloudmersiveConvertApiClient.DocxRun();
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0] = new CloudmersiveConvertApiClient.DocxRun();
 
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems = [];
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems[0] = new CloudmersiveConvertApiClient.DocxText();
