@@ -44,7 +44,7 @@ var callback = function(error, data, response) {
 
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems[0].TextContent = "Page 1";
 
-    reqConfig.InputFileBytes = fileOutput;
+    reqConfig.InputFileBytes = fileOutput.toJSON().data;
 
 
     var callback2 = function(error, data, response) {
