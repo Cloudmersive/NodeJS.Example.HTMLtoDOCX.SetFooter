@@ -31,13 +31,13 @@ var callback = function(error, data, response) {
     var reqConfig = new CloudmersiveConvertApiClient.DocxSetFooterRequest(); // DocxSetFooterRequest | 
 
     reqConfig.FooterToApply = new CloudmersiveConvertApiClient.DocxFooter();
-    reqConfig.FooterToApply.Paragraphs = new CloudmersiveConvertApiClient.DocxParagraph[1];
+    reqConfig.FooterToApply.Paragraphs = [];
     reqConfig.FooterToApply.Paragraphs[0] = new CloudmersiveConvertApiClient.DocxParagraph();
 
-    reqConfig.FooterToApply.Paragraphs[0].ContentRuns = new CloudmersiveConvertApiClient.DocxRun[1];
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns = [];
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns = new CloudmersiveConvertApiClient.DocxRun();
 
-    reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems = new CloudmersiveConvertApiClient.DocxText[1];
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems = [];
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems[0] = new CloudmersiveConvertApiClient.DocxText();
 
     reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems[0].TextContent = "Page 1";
