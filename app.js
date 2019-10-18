@@ -18,9 +18,43 @@ var fileOutput = null;
 
 var callback = function(error, data, response) {
   if (error) {
+    console.error("Error in first call");
     console.error(error);
   } else {
     fileOutput = data;
+    console.info("Completed first call.");
+
+    // Perform second call
+
+    var apiInstance = new CloudmersiveConvertApiClient.EditDocumentApi();
+
+    var reqConfig = new CloudmersiveConvertApiClient.DocxSetFooterRequest(); // DocxSetFooterRequest | 
+
+    reqConfig.FooterToApply = new CloudmersiveConvertApiClient.DocxFooter();
+    reqConfig.FooterToApply.Paragraphs = new CloudmersiveConvertApiClient.DocxParagraph[1];
+    reqConfig.FooterToApply.Paragraphs[0] = new CloudmersiveConvertApiClient.DocxParagraph();
+
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns = new CloudmersiveConvertApiClient.DocxRun[1];
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns = new CloudmersiveConvertApiClient.DocxRun();
+
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems = new CloudmersiveConvertApiClient.DocxText[1];
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems[0] = new CloudmersiveConvertApiClient.DocxText();
+
+    reqConfig.FooterToApply.Paragraphs[0].ContentRuns[0].TextItems[0].TextContent = "Page 1";
+
+    reqConfig.InputFileBytes = fileOutput;
+
+
+    var callback2 = function(error, data, response) {
+    if (error) {
+        console.error(error);
+    } else {
+        console.log('API called successfully. Returned data: ' + data);
+    }
+    };
+    apiInstance.editDocumentDocxSetFooter(reqConfig, callback2);
+
+
   }
 };
 apiInstance.convertWebHtmlToDocx(inputRequest, callback);
@@ -28,16 +62,3 @@ apiInstance.convertWebHtmlToDocx(inputRequest, callback);
 
 
 
-var apiInstance = new CloudmersiveConvertApiClient.EditDocumentApi();
-
-var reqConfig = new CloudmersiveConvertApiClient.DocxSetFooterRequest(); // DocxSetFooterRequest | 
-
-
-var callback2 = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.editDocumentDocxSetFooter(reqConfig, callback2);
